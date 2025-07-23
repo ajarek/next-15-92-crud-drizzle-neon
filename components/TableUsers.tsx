@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Button } from '@/components/ui/button'
+import { Pen, Trash2 } from "lucide-react";
 
 
 const TableUsers = ({users}:{users:User[]}) => {
@@ -35,8 +36,8 @@ const TableUsers = ({users}:{users:User[]}) => {
       <TableCell>{user.email}</TableCell>
       <TableCell className="">{user.password}</TableCell>
       <TableCell className="flex place-items-center gap-4">
-        <Button size={'icon'}>🖊️</Button>
-        <Button size={'icon'}>❌</Button>
+        <Button size={'icon'}><Pen /></Button>
+        <Button variant={'destructive'} size={'icon'}><Trash2 /></Button>
       </TableCell>
     </TableRow>
      ))}

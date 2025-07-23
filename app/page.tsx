@@ -2,6 +2,7 @@ import React from 'react'
 import { getUsers } from '@/server/users'
 import TableUsers from '@/components/TableUsers'
 import { DialogAddUser } from '@/components/DialogAddUser'
+import { ModeToggle } from '@/components/ModeToggle'
 
 
 
@@ -13,6 +14,7 @@ const Home = async () => {
 
       <h1 className='text-2xl font-semibold '>List Users</h1>
       <DialogAddUser/>
+      <ModeToggle/>
 
       </div>
   <TableUsers users={users}/>

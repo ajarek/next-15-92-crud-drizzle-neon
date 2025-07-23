@@ -1,64 +1,41 @@
+'use client'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { PlusCircle } from 'lucide-react'
 
-export function DialogAddUser() {
+import { PlusCircle } from 'lucide-react'
+import UserForm from './UserForm'
+
+export const DialogAddUser = () => {
+  
   return (
     <Dialog>
-      <form>
+     
         <DialogTrigger asChild>
-          <Button
-            variant='ghost'
-            className=''
-          >
+          <Button className='rounded-sm'>
             Add User <PlusCircle />
           </Button>
         </DialogTrigger>
         <DialogContent className='sm:max-w-[425px]'>
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle>Add User</DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
+              Enter your details in the form. Click `Submit` when you&apos;re
+              finished.
             </DialogDescription>
+
+            <UserForm/>
           </DialogHeader>
-          <div className='grid gap-4'>
-            <div className='grid gap-3'>
-              <Label htmlFor='name-1'>Name</Label>
-              <Input
-                id='name-1'
-                name='name'
-                defaultValue='Pedro Duarte'
-              />
-            </div>
-            <div className='grid gap-3'>
-              <Label htmlFor='username-1'>Username</Label>
-              <Input
-                id='username-1'
-                name='username'
-                defaultValue='@peduarte'
-              />
-            </div>
-          </div>
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button variant='outline'>Cancel</Button>
-            </DialogClose>
-            <Button type='submit'>Submit</Button>
-          </DialogFooter>
+         
+         
         </DialogContent>
-      </form>
+      
     </Dialog>
   )
 }
