@@ -1,21 +1,23 @@
-'use client'
+
 import React from 'react'
 import { Label } from './ui/label'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
-import {createUsers} from '@/server/users'
+import { updateUser} from '@/server/users'
 import Form from 'next/form'
-const UserForm = () => {
+const UpdateUserForm =   ({user}:{user:{id:string, username:string, email:string, password:string}}) => {
+  console.log('UpdateUserForm', user)
   return (
-    <Form action={async (formData) => { await createUsers(formData); }}>
+    <Form action={async (formData) => { await updateUser(formData); }}>
        <div className='grid gap-4'>
+           <input type='hidden' name='id' value={user.id}/>
             <div className='grid gap-3'>
               <Label htmlFor='name-1'>User Name</Label>
               <Input
                 type='text'
                 id='name'
                 name='username'
-                defaultValue='Pedro Duarte'
+                defaultValue={user.username}
               />
             </div>
             <div className='grid gap-3'>
@@ -24,7 +26,7 @@ const UserForm = () => {
                 type='email'
                 id='email'
                 name='email'
-                defaultValue='pedro@wp.pl'
+                defaultValue={user.email}
               />
             </div>
             <div className='grid gap-3'>
@@ -33,13 +35,13 @@ const UserForm = () => {
                 type='password'
                 id='password'
                 name='password'
-                defaultValue='pedro123'
+                defaultValue={user.password}
               />
             </div>
-            <Button type='submit'>Submit</Button>
+            <Button type='submit'>Update</Button>
           </div>
     </Form>
   )
 }
 
-export default UserForm
+export default UpdateUserForm

@@ -1,4 +1,4 @@
-
+"use client"
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -9,28 +9,25 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 
-import { PlusCircle } from 'lucide-react'
-import UserForm from './UserForm'
+import { Pen} from 'lucide-react'
+import UpdateUserForm from './UpdateUserForm'
 
-export const DialogAddUser = () => {
+export const DialogUpdateUser = (id:string, username:string, email:string, password:string) => {
   
   return (
     <Dialog>
      
         <DialogTrigger asChild>
-          <Button className='rounded-sm'>
-            Add User <PlusCircle />
-          </Button>
+          <Button size={'icon'} ><Pen /></Button>
         </DialogTrigger>
         <DialogContent className='sm:max-w-[425px]'>
           <DialogHeader>
-            <DialogTitle>Add User</DialogTitle>
+            <DialogTitle>Update User</DialogTitle>
             <DialogDescription>
-              Enter your details in the form. Click `Submit` when you&apos;re
-              finished.
+              Correct your information in the form. When finished, click &apos;Update&apos;.
             </DialogDescription>
 
-            <UserForm/>
+            <UpdateUserForm user={{id, username, email, password}} />
           </DialogHeader>
          
          

@@ -1,3 +1,4 @@
+'use client'
 import type { User } from "@/db/schema";
 import {
   Table,
@@ -8,8 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Button } from '@/components/ui/button'
-import { Pen, Trash2 } from "lucide-react";
+import ButtonDeleteUser from "./ButtonDeleteUser";
+import { DialogUpdateUser } from "./DialogUpdateUser";
 
 
 const TableUsers = ({users}:{users:User[]}) => {
@@ -36,8 +37,8 @@ const TableUsers = ({users}:{users:User[]}) => {
       <TableCell>{user.email}</TableCell>
       <TableCell className="">{user.password}</TableCell>
       <TableCell className="flex place-items-center gap-4">
-        <Button size={'icon'}><Pen /></Button>
-        <Button variant={'destructive'} size={'icon'}><Trash2 /></Button>
+        <DialogUpdateUser id={user.id} username={user.username } email={user.email} password={user.password}/>
+        <ButtonDeleteUser id={user.id}/>
       </TableCell>
     </TableRow>
      ))}
