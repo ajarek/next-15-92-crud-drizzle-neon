@@ -6,7 +6,7 @@ import { Button } from './ui/button'
 import { updateUser} from '@/server/users'
 import Form from 'next/form'
 const UpdateUserForm =   ({user}:{user:{id:string, username:string, email:string, password:string}}) => {
-  console.log('UpdateUserForm', user)
+  
   return (
     <Form action={async (formData) => { await updateUser(formData); }}>
        <div className='grid gap-4'>

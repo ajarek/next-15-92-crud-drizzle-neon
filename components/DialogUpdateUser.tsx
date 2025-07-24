@@ -13,7 +13,7 @@ import { Pen} from 'lucide-react'
 import UpdateUserForm from './UpdateUserForm'
 
 export const DialogUpdateUser = (id:string, username:string, email:string, password:string) => {
-  
+  console.log('UpdateUser', id, username, email, password)
   return (
     <Dialog>
      
