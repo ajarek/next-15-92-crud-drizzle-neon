@@ -57,6 +57,7 @@ export const updateUser = async (formData: FormData) => {
     console.log('update', updatedUser)
      revalidatePath('/') 
       revalidateTag('/')
+      redirect('/')
   } catch (error) {
     console.error(error)
     return { error: 'Failed to update user' }
