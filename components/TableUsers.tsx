@@ -30,7 +30,7 @@ const TableUsers = ({ users }: { users: User[] }) => {
   const [toggleTypeInput, setToggleTypeInput] = useState(false)
   return (
     <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableCaption>Current user list.</TableCaption>
       <TableHeader>
         <TableRow className=''>
           <TableHead className=''>Date</TableHead>
